@@ -15,7 +15,8 @@ to be added.
 
 All project documents are in the [Project Wiki](../../wiki/Home).
 
-- [Vision Statement](../../wiki/Vision%20Statement)
-- [Requirements](../../wiki/Requirements)
+- [Vision Statement](https://github.com/D7NAMITE/ku-polls/wiki/Vision-Statement)
+- [Requirements](https://github.com/D7NAMITE/ku-polls/wiki/Requirement)
+- [Development Plan](https://github.com/D7NAMITE/ku-polls/wiki/Development-Plan)
 
 [django-tutorial]: TODO-write-the-django-tutorial-URL-here
