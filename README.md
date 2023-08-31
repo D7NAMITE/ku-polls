@@ -13,7 +13,7 @@ to be added.
 
 ## Project Documents
 
-All project documents are in the [Project Wiki](../../wiki/Home).
+All project documents are in the [Project Wiki](https://github.com/users/D7NAMITE/projects/5/views/1).
 
 - [Vision Statement](https://github.com/D7NAMITE/ku-polls/wiki/Vision-Statement)
 - [Requirements](https://github.com/D7NAMITE/ku-polls/wiki/Requirement)
