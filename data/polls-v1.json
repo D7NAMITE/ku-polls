@@ -1,0 +1,116 @@
+[
+{
+  "model": "polls.question",
+  "pk": 1,
+  "fields": {
+    "question_text": "Where do you live during the KU academic year?",
+    "pub_date": "2023-09-02T15:32:45Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 2,
+  "fields": {
+    "question_text": "Which mode of transportation do you prefer in KU?",
+    "pub_date": "2023-09-02T15:32:55Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 3,
+  "fields": {
+    "question_text": "Which form of in-class material do you prefer?",
+    "pub_date": "2023-09-02T15:32:59Z"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 1,
+  "fields": {
+    "question": 1,
+    "choice_text": "Your own house or with relative",
+    "votes": 2
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 2,
+  "fields": {
+    "question": 1,
+    "choice_text": "KU Dormitory",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 3,
+  "fields": {
+    "question": 1,
+    "choice_text": "Outside Dormitory, Condo or Apartment",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 4,
+  "fields": {
+    "question": 2,
+    "choice_text": "Motorbike Taxi(Vin Motorcide)",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 5,
+  "fields": {
+    "question": 2,
+    "choice_text": "KU Shuttle Bus(Talai Bus)",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 6,
+  "fields": {
+    "question": 2,
+    "choice_text": "Scooter(Beam)",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 7,
+  "fields": {
+    "question": 2,
+    "choice_text": "Bike",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 8,
+  "fields": {
+    "question": 3,
+    "choice_text": "Digital",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 9,
+  "fields": {
+    "question": 3,
+    "choice_text": "Paper-base",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 10,
+  "fields": {
+    "question": 3,
+    "choice_text": "Hybrid (Both digital and paper)",
+    "votes": 0
+  }
+}
+]

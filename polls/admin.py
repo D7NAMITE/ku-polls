@@ -6,4 +6,4 @@ from .models import Question, Choice
 
 admin.site.register(Question)
 
-admin.site.register(Choice)  # This is the 'Choice' registration for the admin.
+admin.site.register(Choice)  # This is the 'Choice' registration for the admin. Voluntary added to the admin.
