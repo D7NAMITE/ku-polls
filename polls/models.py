@@ -30,7 +30,9 @@ class Choice(models.Model):
     """
         This class will represent all the fields within the Choice
         as a model which the field inside the Choice are
-        question: the question that is the root of the choice
+        question: the question that is the root of the choice.
+        choice_text: the choice of the root question.
+        votes: the amount of votes of the choice.
     """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
