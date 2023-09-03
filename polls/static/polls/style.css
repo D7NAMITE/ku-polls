@@ -1,0 +1,42 @@
+li {
+    font-size:30px;
+    color: #000551;
+    margin-left:150px;
+}
+
+li a {
+    font-size:30px;
+    color: #000551;
+}
+
+body {
+    background: white url("images/lofi_bg.gif") no-repeat;
+    background-size: cover;
+}
+
+form {
+    color: #000551;
+    background: rgba(155, 179, 255, 0.6);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input[type="radio"]:checked + label {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+}
+
+fieldset[class = "result"] {
+    color: #000551;
+    background: rgba(155, 179, 255, 0.6);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
