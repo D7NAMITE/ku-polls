@@ -10,9 +10,13 @@ class Question(models.Model):
     as a model which the field inside the Question are
     question_text: the question of that poll,
     pub_date: the date and time of publication of the poll.
+    end_date: the date and time of the poll's ending.
+              This field can be null when the poll can
+              be accessed anytime after publication.
     """
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
+    end_date = models.DateTimeField('end date')
 
     def __str__(self):
         return self.question_text
