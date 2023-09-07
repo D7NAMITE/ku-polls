@@ -15,7 +15,7 @@ class Question(models.Model):
               be accessed anytime after publication.
     """
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published', auto_add_now=True)
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
     end_date = models.DateTimeField('end date')
 
     def __str__(self):
