@@ -160,6 +160,15 @@ class QuestionIndexViewTests(TestCase):
         self.assertTrue(question.can_vote())
 
 
+    def test_can_vote_future_pub_date(self):
+        """
+        can_vote must return False if the question is not yet published
+        """
+        question = create_question(question_text='This is a question to test blank end_date', days=3)
+        question.end_date = None
+        self.assertFalse(question.can_vote())
+
+
 class QuestionDetailViewTests(TestCase):
     def test_future_question(self):
         """
