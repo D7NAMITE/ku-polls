@@ -133,6 +133,32 @@ class QuestionIndexViewTests(TestCase):
         question = create_question(question_text='This is a question from the past.', days=-3)
         self.assertTrue(question.is_published())
 
+    def test_can_vote_none_end_date(self):
+        """
+        can_vote must return True if the end date is None(default value for end_date).
+        """
+        question = create_question(question_text='This is a question to test None end_date', days=-3)
+        question.end_date = None
+        self.assertTrue(question.can_vote())
+
+
+    def test_can_vote_past_end_date(self):
+        """
+        can_vote must return False if the end date is already passed.
+        """
+        question = create_question(question_text='This is a question to test past end_date', days=-3)
+        now = timezone.now()
+        question.end_date = now - datetime.timedelta(days=1)
+        self.assertFalse(question.can_vote())
+
+
+    def test_can_vote_default_end_date(self):
+        """
+        can_vote must return True if the end date is leave blank as it must set as defalut(None)
+        """
+        question = create_question(question_text='This is a question to test blank end_date', days=-3)
+        self.assertTrue(question.can_vote())
+
 
 class QuestionDetailViewTests(TestCase):
     def test_future_question(self):
