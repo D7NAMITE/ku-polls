@@ -41,7 +41,7 @@ class Question(models.Model):
         can_vote returns True if voting is allowed for this question
         """
         now = timezone.now()
-        if now is not None:
+        if self.end_date is not None:
             return self.is_published() and now < self.end_date
         else:
             return self.is_published()
