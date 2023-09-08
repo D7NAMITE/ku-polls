@@ -6,6 +6,15 @@ from django.utils import timezone
 from .models import Question
 
 
+def create_question(question_text, days):
+    """
+    Create a question with the given `question_text` and published the
+    given number of `days` offset to now (negative for questions published
+    in the past, positive for questions that have yet to be published).
+    """
+    time = timezone.now() + datetime.timedelta(days=days)
+    return Question.objects.create(question_text=question_text, pub_date=time)
+
 class QuestionModelTests(TestCase):
     def test_was_published_recently_with_future_question(self):
         """
@@ -98,14 +107,31 @@ class QuestionIndexViewTests(TestCase):
         self.assertContains(response,question.question_text)
 
 
-def create_question(question_text, days):
-    """
-    Create a question with the given `question_text` and published the
-    given number of `days` offset to now (negative for questions published
-    in the past, positive for questions that have yet to be published).
-    """
-    time = timezone.now() + datetime.timedelta(days=days)
-    return Question.objects.create(question_text=question_text, pub_date=time)
+    def test_is_published_future_question(self):
+        """
+        is_published must be able to check the question that will be published
+        in the future as a question that is not published yet.
+        """
+        future_question = create_question(question_text='This is a question from the future.', days=3)
+        self.assertFalse(future_question.is_published())
+
+
+    def test_is_published_default_pub_date(self):
+        """
+        is_published must be able to check the question that published in the default(now)
+        as a question that is published.
+        """
+        question = create_question(question_text='This is a question from NOW.', days=0)
+        self.assertTrue(question.is_published())
+
+
+    def test_is_published_past_question(self):
+        """
+                is_published must be able to check the question that published in the past
+                as a question that is already published.
+        """
+        question = create_question(question_text='This is a question from the past.', days=-3)
+        self.assertTrue(question.is_published())
 
 
 class QuestionDetailViewTests(TestCase):
