@@ -2,6 +2,16 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+<!--Error Message-->
+{% if messages %}
+    {% for message in messages %}
+        <div class="error">
+            <h2 class = "error_message">{{ message }}</h2>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!--Polls list-->
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -12,10 +22,3 @@
     <p>No polls are available.</p>
 {% endif %}
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}

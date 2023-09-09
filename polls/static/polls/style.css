@@ -39,4 +39,15 @@ fieldset[class = "result"] {
     border-radius: 10px;
 }
 
+.error_message {
+    text-align: center;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0);
+}
 
+.error{
+    color: #D8000C;
+    background-color: #FFBABA;
+	font-size: 13px;
+	border: 1px solid;
+}
