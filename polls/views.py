@@ -1,4 +1,3 @@
-from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
@@ -10,7 +9,7 @@ from .models import Choice, Question
 
 def get_published_question():
     """
-    get_published_question will return the list of published question id
+    get_published_question will return the list of published question id.
     """
     all_questions = Question.objects.all()
     available_questions_id = []
@@ -26,8 +25,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """
-        Return the last five published questions (not including those set to be
-        published in the future).
+        Return the last five published questions (not including those set to be published in the future).
         """
         return Question.objects.filter(id__in=get_published_question()).order_by('-pub_date')[:5]
 
@@ -42,16 +40,15 @@ class DetailView(generic.DetailView):
         """
         return Question.objects.filter(pub_date__lte=timezone.now())
 
-
     def get(self, request, *args, **kwargs):
         """
         get will direct the user to the Question if it's currently available.
         It will redirect to the polls page if the question is not available as it's not published or can't be voted.
         """
         try:
-            self.object = self.get_object() # try to get the object
+            self.object = self.get_object()  # try to get the object
         except Http404:
-            # In the case the poll page lead to an 404 which means the poll does not available do the following
+            #  In the case the poll page lead to an 404 which means the poll does not available do the following
 
             messages.error(request, "The poll is not available.")
             # Show the error message that the poll is unavailable
@@ -68,9 +65,9 @@ class DetailView(generic.DetailView):
                 context = self.get_context_data(object=self.object)
                 return self.render_to_response(context)
 
-
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
+
 
 class ResultsView(generic.DetailView):
     model = Question

@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+
 <!--Error Message-->
 {% if messages %}
     {% for message in messages %}
@@ -13,15 +14,30 @@
 
 <!--Polls list-->
 {% if latest_question_list %}
-    <ul>
+<h1>
+    Welcome to KU Polls
+</h1>
+<table>
     {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
-            <button value="Result" >
+    <tr>
+        <td>
+            <a>{{ question.question_text }}</a>
+        </td>
+        <td>
+        <td>
+            <button>
+                <a href="{% url 'polls:detail' question.id %}">Vote</a>
+            </button>
+        </td>
+        <td>
+            <button>
                 <a href="{% url 'polls:results' question.id %}">Result</a>
             </button>
-        </li>
-    {% endfor %}
-    </ul>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
 {% else %}
     <p>No polls are available.</p>
 {% endif %}

@@ -1,53 +1,82 @@
-li {
-    font-size:30px;
-    color: #000551;
-    margin-left:150px;
-}
-
-li a {
-    font-size:30px;
-    color: #000551;
+body, h1, h2, p, ul, ol, li, form {
+  margin: 10;
+  padding: 5;
 }
 
 body {
-    background: white url("images/lofi_bg.gif") no-repeat;
-    background-size: cover;
+  font-family: Arial, sans-serif; /* Choose an appropriate font */
+  background: white url("images/lofi_bg.gif") no-repeat;
+  background-size: cover;
+  color: #000551;
 }
 
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #000551;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin: 20px 0;
+ }
+
+ h2 {
+  font-size: 30px;
+  color: #000551;
+  text-align: left;
+  margin: 20px 0;
+ }
+
 form {
-    color: #000551;
-    background: rgba(155, 179, 255, 0.6);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
+  background: rgba(155, 179, 255, 0.6);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 input[type="radio"]:checked + label {
-    font-weight: bold;
-    text-decoration: underline;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
+/* Apply styles to the submit button */
 input[type="submit"] {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
-fieldset[class = "result"] {
-    color: #000551;
-    background: rgba(155, 179, 255, 0.6);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-}
-
+/* Apply styles to error messages */
 .error_message {
-    text-align: center;
-    width: 50%;
-    background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.error{
-    color: #D8000C;
-    background-color: #FFBABA;
-	font-size: 13px;
-	border: 1px solid;
+.error {
+  color: #D8000C;
+  background-color: #FFBABA;
+  font-size: 13px;
+  border: 1px solid;
 }
+
+/* Apply styles to tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+table td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  font-size: 20px;
+  color: #000551;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
