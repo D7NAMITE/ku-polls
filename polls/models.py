@@ -10,9 +10,13 @@ class Question(models.Model):
     as a model which the field inside the Question are
     question_text: the question of that poll,
     pub_date: the date and time of publication of the poll.
+    end_date: the date and time of the poll's ending.
     """
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField('date published', auto_now_add=False)
+    # pub_date default is set to be the current datetime.
+    end_date = models.DateTimeField('end date', default=None, null=True, blank=True)
+    # end_date can be null when the poll is intended to be available anytime after publication.
 
     def __str__(self):
         return self.question_text
@@ -24,6 +28,23 @@ class Question(models.Model):
         """
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
+
+    def is_published(self):
+        """
+        is_published returns True if the current date is on or after question’s publication date.
+        """
+        now = timezone.now()
+        return now >= self.pub_date
+
+    def can_vote(self):
+        """
+        can_vote returns True if voting is allowed for this question
+        """
+        now = timezone.now()
+        if self.end_date is not None:
+            return self.is_published() and now < self.end_date
+        else:
+            return self.is_published()
 
 
 class Choice(models.Model):

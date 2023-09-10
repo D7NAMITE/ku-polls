@@ -3,13 +3,23 @@
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
 <fieldset class="result">
-<h1>{{ question.question_text }}</h1>
+<h2>{{ question.question_text }}</h2>
 
-<ul>
+<table>
+    <tr>
+        <th>Choice</th>
+        <th>Vote</th>
+    </tr>
 {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+        <tr>
+            <td class="choice_text">{{ choice.choice_text }}</td>
+            <td class="vote_count">{{ choice.votes }}</td>
+        </tr>
 {% endfor %}
-</ul>
+</table>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<button value="Back to List of Polls" >
+    <a href="http://127.0.0.1:8000/polls/">Back to List of Polls</a>
+</button>
+
 </fieldset>

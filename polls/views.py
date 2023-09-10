@@ -1,9 +1,22 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+from django.contrib import messages
 from .models import Choice, Question
+
+
+def get_published_question():
+    """
+    get_published_question will return the list of published question id.
+    """
+    all_questions = Question.objects.all()
+    available_questions_id = []
+    for question in all_questions:
+        if Question.is_published(question):
+            available_questions_id += [question.id]
+    return available_questions_id
 
 
 class IndexView(generic.ListView):
@@ -12,12 +25,9 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """
-        Return the last five published questions (not including those set to be
-        published in the future).
+        Return the last five published questions (not including those set to be published in the future).
         """
-        return Question.objects.filter(
-            pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:5]
+        return Question.objects.filter(id__in=get_published_question()).order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
@@ -29,6 +39,34 @@ class DetailView(generic.DetailView):
         Excludes any questions that aren't published yet.
         """
         return Question.objects.filter(pub_date__lte=timezone.now())
+
+    def get(self, request, *args, **kwargs):
+        """
+        get will direct the user to the Question if it's currently available.
+        It will redirect to the polls page if the question is not available as it's not published or can't be voted.
+        """
+        try:
+            self.object = self.get_object()  # try to get the object
+        except Http404:
+            #  In the case the poll page lead to an 404 which means the poll does not available do the following
+
+            messages.error(request, "The poll is not available.")
+            # Show the error message that the poll is unavailable
+
+            return redirect('polls:index')
+            # redirect to polls page
+        else:
+            if not self.object.is_published():
+                messages.error(request, "The poll is not published yet.")
+                return redirect('polls:index')
+            elif not self.object.can_vote():
+                messages.error(request, "You are currently not allowed to vote in this poll.")
+            else:
+                context = self.get_context_data(object=self.object)
+                return self.render_to_response(context)
+
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
 
 
 class ResultsView(generic.DetailView):
