@@ -15,8 +15,16 @@
 <!--Polls list-->
 {% if latest_question_list %}
 <h1>
-    Welcome to KU Polls
+    KU Polls
 </h1>
+{% if user.is_authenticated %}
+<p>
+    Welcome back, {{user.username.title}}
+</p>
+{% else %}
+    Please <a href="{% url 'login' %}">Login</a> to vote
+{% endif %}
+
 <table>
     {% for question in latest_question_list %}
     <tr>
