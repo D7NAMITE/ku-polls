@@ -1,10 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.contrib import messages
-from .models import Choice, Question
+from .models import Choice, Question, Vote
 
 
 def get_published_question():
@@ -74,8 +75,13 @@ class ResultsView(generic.DetailView):
     template_name = 'polls/results.html'
 
 
+@login_required
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
+
+    if not question.can_vote():
+        messages.error(request, "Poll is not available to vote")
+        return redirect("polls:index")
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
@@ -84,10 +90,19 @@ def vote(request, question_id):
             'question': question,
             'error_message': "You didn't select a choice.",
         })
-    else:
-        selected_choice.votes += 1
-        selected_choice.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+    # selected_choice.votes += 1
+    # selected_choice.save()
+    this_user = request.user
+    try:
+        # find a vote for this user and this question
+        vote = Vote.objects.get(user=this_user, choice__question=question)
+        # Updating the choice voted
+        vote.choice = selected_choice
+    except Vote.DoesNotExist:
+        # no matching vote - Create a new vote
+        vote = Vote(user=this_user, choice=selected_choice)
+    vote.save()
+
+    # TODO: Use messages to display a confirmation on the result page.
+
+    return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
