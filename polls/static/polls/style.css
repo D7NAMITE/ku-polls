@@ -80,3 +80,26 @@ table td {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+.topnav {
+  background-color: rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: rgba(0, 5, 81);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #000551;
+  color: white;
+}

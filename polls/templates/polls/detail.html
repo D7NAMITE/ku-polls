@@ -2,6 +2,16 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+<div class="topnav">
+  <a class href=http://127.0.0.1:8000/polls/>Home</a>
+  {% if user.is_authenticated %}
+    <a href=http://127.0.0.1:8000/accounts/logout/>Logout</a>
+  {% else %}
+    <a href=http://127.0.0.1:8000/accounts/login/>Login</a>
+  {% endif %}
+</div>
+<!--The nav bar template from W3school-->
+
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
 <fieldset>
