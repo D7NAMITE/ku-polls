@@ -63,7 +63,11 @@ class DetailView(generic.DetailView):
             elif not self.object.can_vote():
                 messages.error(request, "You are currently not allowed to vote in this poll.")
             else:
-                context = self.get_context_data(object=self.object)
+                try:
+                    user_vote = self.object.choice_set.filter(vote__user=request.user).last()
+                except (Vote.DoesNotExist, TypeError):
+                    user_vote = 0
+                context = self.get_context_data(object=self.object, user_vote=user_vote)
                 return self.render_to_response(context)
 
         context = self.get_context_data(object=self.object)
