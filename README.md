@@ -20,5 +20,6 @@ All project documents are in the [Project Wiki](https://github.com/users/D7NAMIT
 - [Development Plan](https://github.com/D7NAMITE/ku-polls/wiki/Development-Plan)
 - [Iteration 1 Plan](https://github.com/D7NAMITE/ku-polls/wiki/Iteration-1-Plan)
 - [Iteration 2 Plan](https://github.com/D7NAMITE/ku-polls/wiki/Iteration-2-Plan)
+- [Iteration 3 Plan](https://github.com/D7NAMITE/ku-polls/wiki/Iteration-3-Plan)
 
 [django-tutorial]: TODO-write-the-django-tutorial-URL-here
