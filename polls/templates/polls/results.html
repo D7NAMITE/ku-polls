@@ -12,6 +12,14 @@
 </div>
 <!--The nav bar template from W3school-->
 
+{% if messages %}
+    {% for message in messages %}
+        <div class="success">
+            <a class = "success_message">{{ message }}</a>
+        </div>
+    {% endfor %}
+{% endif %}
+
 <fieldset class="result">
 <h2>{{ question.question_text }}</h2>
 

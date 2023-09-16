@@ -49,6 +49,8 @@ input[type="submit"] {
   text-align: center;
   width: 50%;
   background-color: rgba(255, 255, 255, 0);
+  margin: 10;
+  padding: 5;
 }
 
 .error {
@@ -56,6 +58,17 @@ input[type="submit"] {
   background-color: #FFBABA;
   font-size: 13px;
   border: 1px solid;
+  margin: 10;
+  padding: 5;
+}
+
+.success {
+  color: #3d7a27;
+  background-color: #abff8c;
+  font-size: 13px;
+  border: 1px solid;
+  margin: 10;
+  padding: 5;
 }
 
 /* Apply styles to tables */
