@@ -2,22 +2,44 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+<div class="topnav">
+  <a class href=http://127.0.0.1:8000/polls/>Home</a>
+  {% if user.is_authenticated %}
+    <a href=http://127.0.0.1:8000/accounts/logout/>Logout</a>
+  {% else %}
+    <a href=http://127.0.0.1:8000/accounts/login/>Login</a>
+  {% endif %}
+</div>
+<!--The nav bar template from W3school-->
 <form action="{% url 'polls:vote' question.id %}" method="post">
+
 {% csrf_token %}
+
 <fieldset>
     <legend><h2>{{ question.question_text }}</h2></legend>
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
     {% for choice in question.choice_set.all %}
-        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        {% if user_vote and choice.id == user_vote.id %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" checked>
+        {% else %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        {% endif %}
         <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
     {% endfor %}
+
 </fieldset>
+
+{% if not user.is_authenticated %}
+        <a class="auth_notice">Please Login to vote</a><br>
+{% endif %}
+
 <input type="submit" value="Vote">
-    <button value="Result" >
-        <a href="{% url 'polls:results' question.id %}">Result</a>
-    </button>
-    <button value="Back to List of Polls" >
-        <a href="http://127.0.0.1:8000/polls/">Back to List of Polls</a>
-    </button>
+<button value="Result" >
+    <a href="{% url 'polls:results' question.id %}">Result</a>
+</button>
+<button value="Back to List of Polls" >
+    <a href="http://127.0.0.1:8000/polls/">Back to List of Polls</a>
+</button>
 </form>
 

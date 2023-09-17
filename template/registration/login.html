@@ -1,0 +1,26 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+<html>
+
+<div class="topnav">
+  <a href=http://127.0.0.1:8000/polls/>Home</a>
+  <a class="active" href=http://127.0.0.1:8000/accounts/login/>Login</a>
+</div>
+<!--The nav bar template from W3school-->
+
+<body>
+<h2>Login</h2>
+<form method="POST">
+  {% csrf_token %}
+  <table>
+  {{ form.as_table }}
+  </table>
+  <p>
+  <button type="submit">Login</button>
+  </p>
+  <input type="hidden" name="next" value="{{next}}"/>
+ </form>
+</body>
+</html>

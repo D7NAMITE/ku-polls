@@ -2,12 +2,21 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+<div class="topnav">
+  <a class="active" href=http://127.0.0.1:8000/polls/>Home</a>
+  {% if user.is_authenticated %}
+    <a href=http://127.0.0.1:8000/accounts/logout/>Logout</a>
+  {% else %}
+    <a href=http://127.0.0.1:8000/accounts/login/>Login</a>
+  {% endif %}
+</div>
+<!--The nav bar template from W3school-->
 
 <!--Error Message-->
 {% if messages %}
     {% for message in messages %}
         <div class="error">
-            <h2 class = "error_message">{{ message }}</h2>
+            <a class = "error_message">{{ message }}</a>
         </div>
     {% endfor %}
 {% endif %}
@@ -15,8 +24,16 @@
 <!--Polls list-->
 {% if latest_question_list %}
 <h1>
-    Welcome to KU Polls
+    KU Polls
 </h1>
+{% if user.is_authenticated %}
+<p>
+    Welcome back, {{user.username.title}}
+</p>
+{% else %}
+    Please <a href="{% url 'login' %}">Login</a> to vote
+{% endif %}
+
 <table>
     {% for question in latest_question_list %}
     <tr>
