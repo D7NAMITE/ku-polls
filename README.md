@@ -22,4 +22,8 @@ All project documents are in the [Project Wiki](https://github.com/users/D7NAMIT
 - [Iteration 2 Plan](https://github.com/D7NAMITE/ku-polls/wiki/Iteration-2-Plan)
 - [Iteration 3 Plan](https://github.com/D7NAMITE/ku-polls/wiki/Iteration-3-Plan)
 
-[django-tutorial]: TODO-write-the-django-tutorial-URL-here
+## Demo User
+| Username  | Password        | Note        |
+|-----------|-----------------|-----------------|
+|   Demo1   | Demopass12 | Typical User|
+|   D7NAMITE   | 1234 | Super-user|
