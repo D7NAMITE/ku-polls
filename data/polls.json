@@ -27,6 +27,24 @@
   }
 },
 {
+  "model": "polls.question",
+  "pk": 4,
+  "fields": {
+    "question_text": "Which music streaming platform do you prefer?",
+    "pub_date": "2023-09-22T16:43:07Z",
+    "end_date": "2023-09-23T17:00:00Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 6,
+  "fields": {
+    "question_text": "Which Lecture Hall in KU is the best according to your experience?",
+    "pub_date": "2023-09-22T16:55:19Z",
+    "end_date": "2023-09-23T05:00:00Z"
+  }
+},
+{
   "model": "polls.choice",
   "pk": 1,
   "fields": {
@@ -128,6 +146,94 @@
   "fields": {
     "question": 3,
     "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 14,
+  "fields": {
+    "question": 4,
+    "choice_text": "Spotify"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 15,
+  "fields": {
+    "question": 4,
+    "choice_text": "SoundCloud"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 16,
+  "fields": {
+    "question": 4,
+    "choice_text": "Youtube Music"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 17,
+  "fields": {
+    "question": 4,
+    "choice_text": "Tidal"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 18,
+  "fields": {
+    "question": 4,
+    "choice_text": "Apple Music"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 19,
+  "fields": {
+    "question": 4,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 20,
+  "fields": {
+    "question": 6,
+    "choice_text": "Lecture Hall 1"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 21,
+  "fields": {
+    "question": 6,
+    "choice_text": "Lecture Hall 2"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 22,
+  "fields": {
+    "question": 6,
+    "choice_text": "Lecture Hall 3"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 23,
+  "fields": {
+    "question": 6,
+    "choice_text": "Lecture Hall 4"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 24,
+  "fields": {
+    "question": 6,
+    "choice_text": "I've never had a lecture in the Lecture Hall"
   }
 }
 ]

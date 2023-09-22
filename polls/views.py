@@ -28,7 +28,7 @@ class IndexView(generic.ListView):
         """
         Return the last five published questions (not including those set to be published in the future).
         """
-        return Question.objects.filter(id__in=get_published_question()).order_by('-pub_date')[:5]
+        return Question.objects.filter(id__in=get_published_question()).order_by('-pub_date')
 
 
 class DetailView(generic.DetailView):
