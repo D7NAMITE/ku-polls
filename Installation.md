@@ -56,7 +56,3 @@ similar to this:
     ```
    python manage.py test
    ```
-10. Start the Django server
-    ```
-    python manage.py runserver
-    ```
