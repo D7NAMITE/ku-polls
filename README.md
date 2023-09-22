@@ -11,7 +11,16 @@ https://cpske.github.io/ISP) course at Kasetsart University.
 
 ## Install and Run
 
-to be added.
+The instruction is available [here](./Installation.md)
+
+## Running the Application
+
+To run the application on the server,
+run this command after the installation: 
+```
+python manage.py runserver
+```
+Note: You must stay in the repository `ku-polls`
 
 ## Project Documents
 
@@ -24,8 +33,14 @@ All project documents are in the [Project Wiki](https://github.com/users/D7NAMIT
 - [Iteration 2 Plan](https://github.com/D7NAMITE/ku-polls/wiki/Iteration-2-Plan)
 - [Iteration 3 Plan](https://github.com/D7NAMITE/ku-polls/wiki/Iteration-3-Plan)
 
+## Demo Superuser
+| Username | Password |
+|----------|----------|
+| D7NAMITE | 1234     |
+
 ## Demo User
 | Username  | Password        |
 |-----------|-----------------|
 |   Demo1   | Demopass12 |
 |   Demo2   | Hackme12 |
+
