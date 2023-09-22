@@ -25,7 +25,7 @@ All project documents are in the [Project Wiki](https://github.com/users/D7NAMIT
 - [Iteration 3 Plan](https://github.com/D7NAMITE/ku-polls/wiki/Iteration-3-Plan)
 
 ## Demo User
-| Username  | Password        | Note        |
-|-----------|-----------------|-----------------|
-|   Demo1   | Demopass12 | Typical User|
-|   D7NAMITE   | 1234 | Super-user|
+| Username  | Password        |
+|-----------|-----------------|
+|   Demo1   | Demopass12 |
+|   Demo2   | Hackme12 |
