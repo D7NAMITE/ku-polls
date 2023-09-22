@@ -107,19 +107,27 @@
   }
 },
 {
-  "model": "polls.vote",
-  "pk": 1,
+  "model": "polls.choice",
+  "pk": 11,
   "fields": {
-    "choice": 6,
-    "user": 1
+    "question": 1,
+    "choice_text": "Other"
   }
 },
 {
-  "model": "polls.vote",
-  "pk": 2,
+  "model": "polls.choice",
+  "pk": 12,
   "fields": {
-    "choice": 8,
-    "user": 1
+    "question": 2,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 13,
+  "fields": {
+    "question": 3,
+    "choice_text": "Other"
   }
 }
 ]
