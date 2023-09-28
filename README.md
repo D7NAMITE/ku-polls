@@ -6,6 +6,8 @@ An application to conduct online polls and surveys based
 on the [Django Tutorial project][django-tutorial], with
 additional features.
 
+[django-tutorial]: https://docs.djangoproject.com/en/4.2/intro/tutorial01/
+
 This app was created as part of the [Individual Software Process](
 https://cpske.github.io/ISP) course at Kasetsart University.
 
