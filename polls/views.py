@@ -89,13 +89,16 @@ def vote(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        # Redisplay the question voting form.
+        referrer = request.META.get('HTTP_REFERER')
+        is_login_page = referrer and reverse('login') in referrer
+        if not is_login_page:
+            # Redisplay the question voting form.
+            return render(request, 'polls/detail.html', {
+                'question': question,
+                'error_message': "You didn't select a choice.",
+            })
         return render(request, 'polls/detail.html', {
-            'question': question,
-            'error_message': "You didn't select a choice.",
-        })
-    # selected_choice.votes += 1
-    # selected_choice.save()
+                'question': question,})
     this_user = request.user
     try:
         # find a vote for this user and this question
