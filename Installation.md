@@ -24,7 +24,7 @@ similar to this:
    ```
    for Windows:
     ```
-   call venv/Scripts/activate
+   venv/Scripts/activate
    ```
 5. Install the requirements from ```requirements.txt```
     ```
