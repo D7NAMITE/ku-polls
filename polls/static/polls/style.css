@@ -39,9 +39,9 @@ input[type="radio"]:checked + label {
   text-decoration: underline;
 }
 
-/* Apply styles to the submit button */
 input[type="submit"] {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Apply styles to error messages */
@@ -71,7 +71,6 @@ input[type="submit"] {
   padding: 5;
 }
 
-/* Apply styles to tables */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -82,7 +81,7 @@ table th {
   background-color: #333;
   color: #fff;
   padding: 10px;
-  text-align: center;
+  text-align: left;
 }
 
 table td {

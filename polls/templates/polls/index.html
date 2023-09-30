@@ -35,21 +35,33 @@
 {% endif %}
 
 <table>
+    <tr>
+        <th>
+            Poll
+        </th>
+        <th>
+            Vote Link
+        </th>
+        <th>
+            Result Link
+        </th>
+    </tr>
     {% for question in latest_question_list %}
     <tr>
         <td>
             <a>{{ question.question_text }}</a>
         </td>
+        {% if question.can_vote %}
         <td>
-        <td>
-            <button>
-                <a href="{% url 'polls:detail' question.id %}">Vote</a>
-            </button>
+            <a href="{% url 'polls:detail' question.id %}">Vote</a>
         </td>
+        {% else %}
         <td>
-            <button>
-                <a href="{% url 'polls:results' question.id %}">Result</a>
-            </button>
+            <a>Poll Closed</a>
+        </td>
+        {% endif %}
+        <td>
+            <a href="{% url 'polls:results' question.id %}">Result</a>
         </td>
     </tr>
 {% endfor %}

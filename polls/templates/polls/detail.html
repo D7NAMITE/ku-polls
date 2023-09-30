@@ -9,6 +9,7 @@
   {% else %}
     <a href=http://127.0.0.1:8000/accounts/login/>Login</a>
   {% endif %}
+  <a href="{% url 'polls:results' question.id %}">Result</a><br>
 </div>
 <!--The nav bar template from W3school-->
 <form action="{% url 'polls:vote' question.id %}" method="post">
@@ -34,12 +35,8 @@
         <a class="auth_notice">Please Login to vote</a><br>
 {% endif %}
 
-<input type="submit" value="Vote">
-<button value="Result" >
-    <a href="{% url 'polls:results' question.id %}">Result</a>
-</button>
-<button value="Back to List of Polls" >
-    <a href="http://127.0.0.1:8000/polls/">Back to List of Polls</a>
-</button>
+<input type="submit" value="Vote"><br>
+
+
 </form>
 
